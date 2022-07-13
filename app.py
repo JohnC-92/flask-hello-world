@@ -1,11 +1,13 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello_world():
-    return "Hello World 999!"
+    key = os.environ.get("MY_KEY")
+    return f"Hello World {key}!"
 
 
 if __name__ == "__main__":
