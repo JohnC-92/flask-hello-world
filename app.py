@@ -7,7 +7,10 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     key = os.environ.get("MY_KEY")
-    return f"Hello World {key}!"
+    if key:
+        return f"Hello World {key}!"
+    else:
+        return "Hello World No Key"
 
 
 if __name__ == "__main__":
